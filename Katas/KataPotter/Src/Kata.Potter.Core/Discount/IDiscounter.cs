@@ -28,11 +28,11 @@ namespace Kata.Potter.Core.Discount
 
       var bestDiscountedBooks = books;
 
-      for(int i = 0; i <= discounts.Count(); i++)
+      for(int i = 1; i <= discounts.Count(); i++)
       {
        var testDiscountBooks = books.Clone();
 
-        foreach(IDiscount discount in discounts.Take(i).OrderByDescending(x => x.Percentage))
+        foreach(var discount in discounts.Take(i).OrderByDescending(x => x.Percentage))
         {
           while(discount.IsSatisfiedBy(testDiscountBooks))
             discount.Apply(testDiscountBooks);

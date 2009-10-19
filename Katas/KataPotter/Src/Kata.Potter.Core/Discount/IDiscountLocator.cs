@@ -11,18 +11,18 @@ namespace Kata.Potter.Core.Discount
 
   public class DiscountLocator : IDiscountLocator
   {
-    private readonly IDiscountRepository _factory;
+    private readonly IDiscountRepository _repo;
 
-    public DiscountLocator(IDiscountRepository factory)
+    public DiscountLocator(IDiscountRepository repo)
     {
-      _factory = factory;
+      _repo = repo;
     }
 
     #region IDiscountLocator Members
 
     public IEnumerable<IDiscount> GetDiscountsFor(IList<Book> books)
     {
-      return _factory.GetAllDiscounts()
+      return _repo.GetAllDiscounts()
         .Where(x => x.IsSatisfiedBy(books));
     }
 
