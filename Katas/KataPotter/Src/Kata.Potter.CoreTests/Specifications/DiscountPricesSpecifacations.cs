@@ -15,7 +15,7 @@ namespace Kata.Potter.CoreTests.Specifications
     }
 
     [Subject("calculating prices")]
-    public class when_calculating_the_ful_price_of_many_books : with_no_discounts
+    public class when_calculating_the_full_price_of_many_books : with_no_discounts
     {
          Establish context = () =>
                                         {
