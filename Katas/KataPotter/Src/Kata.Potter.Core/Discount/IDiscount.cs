@@ -6,7 +6,7 @@ namespace Kata.Potter.Core.Discount
 {
   public interface IDiscount
   {
-    double Percentage { get; }
+    decimal Percentage { get; }
     bool IsSatisfiedBy(IList<Book> books);
     void Apply(IList<Book> books);
   }
@@ -14,10 +14,10 @@ namespace Kata.Potter.Core.Discount
   public class Discount : IDiscount
   {
     private readonly int _bookCount;
-    private readonly double _percentage;
+    private readonly decimal _percentage;
 
 
-    public Discount(int bookCount, double percentage)
+    public Discount(int bookCount, decimal percentage)
     {
       _percentage = percentage;
       _bookCount = bookCount;
@@ -25,7 +25,7 @@ namespace Kata.Potter.Core.Discount
 
     #region IDiscount Members
 
-    public double Percentage
+    public decimal Percentage
     {
       get { return _percentage; }
     }
