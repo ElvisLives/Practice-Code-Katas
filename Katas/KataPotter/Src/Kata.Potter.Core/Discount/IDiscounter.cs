@@ -23,17 +23,26 @@ namespace Kata.Potter.Core.Discount
     public IList<Book> ApplyDiscounts(IList<Book> books)
     {
       IEnumerable<IDiscount> discounts = _locator.GetDiscountsFor(books)
-        .OrderByDescending(x => x.Percentage);
+        .OrderBy(x => x.Percentage);
 
-      foreach(IDiscount discount in discounts)
+      IList<Book> bestDiscountedBooks = books;
+      for(int i = 0; i <= discounts.Count(); i++)
       {
-        while(discount.IsSatisfiedBy(books))
+        var testDiscountBooks = new List<Book>();
+        books.ToList().ForEach(x => testDiscountBooks.Add((Book) x.Clone()));
+        foreach(IDiscount discount in discounts.Take(i).OrderByDescending(x => x.Percentage))
         {
-          discount.Apply(books);
+          while(discount.IsSatisfiedBy(testDiscountBooks))
+          {
+            discount.Apply(testDiscountBooks);
+          }
         }
+
+        if(testDiscountBooks.Sum(x => x.Price) < bestDiscountedBooks.Sum(x => x.Price))
+          bestDiscountedBooks = testDiscountBooks;
       }
 
-      return books;
+      return bestDiscountedBooks;
     }
 
     #endregion

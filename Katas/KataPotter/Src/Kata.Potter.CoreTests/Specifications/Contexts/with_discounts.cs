@@ -9,10 +9,10 @@ namespace Kata.Potter.CoreTests.Specifications.Contexts
   {
     public static PriceCalculator calculator;
     public static Cart cart = new Cart();
-    public static double correctPrice;
+    public static decimal correctPrice;
     public static IDiscounter discounter;
     public static IDiscountLocator locator;
-    public static double price;
+    public static decimal price;
     public static IDiscountRepository repo;
 
     private Establish context = () =>

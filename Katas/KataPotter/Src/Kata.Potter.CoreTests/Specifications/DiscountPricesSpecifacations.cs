@@ -49,7 +49,7 @@ namespace Kata.Potter.CoreTests.Specifications
                                         {
                                             cart.AddBook(new Book("Book 1", 8));
                                             cart.AddBook(new Book("Book 2", 8));
-                                            correctPrice = 8*2 - (8*2*0.05);
+                                            correctPrice = 8*2 - (8*2*0.05M);
                                         };
 
          Because of = () => { price = calculator.CalculatePriceFor(cart); };
@@ -65,7 +65,7 @@ namespace Kata.Potter.CoreTests.Specifications
                                             cart.AddBook(new Book("Book 1", 8));
                                             cart.AddBook(new Book("Book 2", 8));
                                             cart.AddBook(new Book("Book 3", 8));
-                                            correctPrice = 8*3 - (8*3*0.1);
+                                            correctPrice = 8*3 - (8*3*0.1M);
                                         };
 
          Because of = () => { price = calculator.CalculatePriceFor(cart); };
@@ -82,7 +82,7 @@ namespace Kata.Potter.CoreTests.Specifications
                                             cart.AddBook(new Book("Book 2", 8));
                                             cart.AddBook(new Book("Book 3", 8));
                                             cart.AddBook(new Book("Book 4", 8));
-                                            correctPrice = 8*4 - (8*4*0.2);
+                                            correctPrice = 8*4 - (8*4*0.2M);
                                         };
 
          Because of = () => { price = calculator.CalculatePriceFor(cart); };
@@ -100,7 +100,7 @@ namespace Kata.Potter.CoreTests.Specifications
                                             cart.AddBook(new Book("Book 3", 8));
                                             cart.AddBook(new Book("Book 4", 8));
                                             cart.AddBook(new Book("Book 5", 8));
-                                            correctPrice = 8*5 - (8*5*0.25);
+                                            correctPrice = 8*5 - (8*5*0.25M);
                                         };
 
          Because of = () => { price = calculator.CalculatePriceFor(cart); };
@@ -117,7 +117,7 @@ namespace Kata.Potter.CoreTests.Specifications
                                             cart.AddBook(new Book("Book 2", 8));
                                             cart.AddBook(new Book("Book 3", 8));
                                             cart.AddBook(new Book("Book 3", 8));
-                                            correctPrice = (8*3 - (8*3*0.1)) + 8;
+                                            correctPrice = (8*3 - (8*3*0.1M)) + 8;
                                         };
 
          Because of = () => { price = calculator.CalculatePriceFor(cart); };
@@ -139,7 +139,7 @@ namespace Kata.Potter.CoreTests.Specifications
                                             cart.AddBook(new Book("Book 3", 8));
                                             cart.AddBook(new Book("Book 4", 8));
                                             cart.AddBook(new Book("Book 5", 8));
-                                            correctPrice = 51.2;
+                                            correctPrice = 51.2M;
                                         };
 
          Because of = () => { price = calculator.CalculatePriceFor(cart); };

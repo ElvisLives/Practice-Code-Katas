@@ -41,9 +41,9 @@ namespace Kata.Potter.Core.Discount
     public bool IsSatisfiedBy(IList<Book> books)
     {
       return books
-        .Where(x => x.IsDiscounted == false)
-        .Distinct()
-        .Count() >= _bookCount;
+               .Where(x => x.IsDiscounted == false)
+               .Distinct()
+               .Count() >= _bookCount;
     }
 
     #endregion

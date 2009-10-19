@@ -15,10 +15,10 @@ namespace Kata.Potter.Core.Discount
     {
       return new List<IDiscount>
                {
-                 new Discount(2, .05),
-                 new Discount(3, .1),
-                 new Discount(4, .2),
-                 new Discount(5, .25)
+                 new Discount(2, .05M),
+                 new Discount(3, .1M),
+                 new Discount(4, .2M),
+                 new Discount(5, .25M)
                };
     }
 

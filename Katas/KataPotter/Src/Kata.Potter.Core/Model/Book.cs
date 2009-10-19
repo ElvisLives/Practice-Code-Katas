@@ -4,7 +4,7 @@ namespace Kata.Potter.Core.Model
 {
   public class Book : IEquatable<Book>, ICloneable
   {
-    public Book(string title, double price)
+    public Book(string title, decimal price)
     {
       Title = title;
       Price = price;
@@ -12,8 +12,17 @@ namespace Kata.Potter.Core.Model
     }
 
     public string Title { get; private set; }
-    public double Price { get; set; }
+    public decimal Price { get; set; }
     public bool IsDiscounted { get; set; }
+
+    #region ICloneable Members
+
+    public object Clone()
+    {
+      return new Book(Title, Price) {IsDiscounted = IsDiscounted};
+    }
+
+    #endregion
 
     #region IEquatable<Book> Members
 
@@ -40,11 +49,6 @@ namespace Kata.Potter.Core.Model
       {
         return ((Title != null ? Title.GetHashCode() : 0) * 397);
       }
-    }
-
-    public object Clone()
-    {
-      return new Book(Title, Price) { IsDiscounted = IsDiscounted};
     }
   }
 }

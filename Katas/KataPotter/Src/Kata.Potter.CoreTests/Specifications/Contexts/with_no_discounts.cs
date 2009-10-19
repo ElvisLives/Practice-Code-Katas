@@ -11,7 +11,7 @@ namespace Kata.Potter.CoreTests.Specifications.Contexts
     public static PriceCalculator calculator;
     public static Cart cart = new Cart();
     public static IDiscounter discounter;
-    public static double price;
+    public static decimal price;
 
     private Establish context = () =>
                                   {

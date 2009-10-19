@@ -18,7 +18,7 @@ namespace Kata.Potter.CoreTests
       var item = new PriceCalculator(discounter);
 
       int expected = 0;
-      double actual = item.CalculatePriceFor(cart);
+      decimal actual = item.CalculatePriceFor(cart);
 
       actual.ShouldEqual(expected);
     }
@@ -33,7 +33,7 @@ namespace Kata.Potter.CoreTests
       int expected = 10;
 
       cart.AddBook(new Book("", 10));
-      double actual = item.CalculatePriceFor(cart);
+      decimal actual = item.CalculatePriceFor(cart);
 
       actual.ShouldEqual(expected);
     }
@@ -49,7 +49,7 @@ namespace Kata.Potter.CoreTests
 
       cart.AddBook(new Book("", 10));
       cart.AddBook(new Book("", 10));
-      double actual = item.CalculatePriceFor(cart);
+      decimal actual = item.CalculatePriceFor(cart);
 
       actual.ShouldEqual(expected);
     }
