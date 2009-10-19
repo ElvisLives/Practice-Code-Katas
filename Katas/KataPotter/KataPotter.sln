@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata.Potter.Core", "Src\Kata.Potter.Core\Kata.Potter.Core.csproj", "{0942216F-CFAA-43A0-89B4-E8B4051AED7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata.Potter.CoreTests", "Src\Kata.Potter.CoreTests\Kata.Potter.CoreTests.csproj", "{910A2FF3-1EA5-4075-9AFF-3EA02045877D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0942216F-CFAA-43A0-89B4-E8B4051AED7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0942216F-CFAA-43A0-89B4-E8B4051AED7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0942216F-CFAA-43A0-89B4-E8B4051AED7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0942216F-CFAA-43A0-89B4-E8B4051AED7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{910A2FF3-1EA5-4075-9AFF-3EA02045877D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{910A2FF3-1EA5-4075-9AFF-3EA02045877D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{910A2FF3-1EA5-4075-9AFF-3EA02045877D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{910A2FF3-1EA5-4075-9AFF-3EA02045877D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
