@@ -8,11 +8,11 @@ namespace Kata.Potter.Core
 {
     public class PriceCalculator
     {
-        private IDiscountLocator _discountLocator;
+      private IDiscounter _discounter;
 
-        public PriceCalculator(IDiscountLocator locator)
+      public PriceCalculator(IDiscounter discounter)
         {
-            _discountLocator = locator;
+            _discounter = discounter;
         }
 
         public double CalculatePriceFor(Cart cart)
@@ -23,7 +23,7 @@ namespace Kata.Potter.Core
 
         private IList<Book> ApplyDiscounts(IList<Book> books)
         {
-            return books;
+          return _discounter.ApplyDiscounts(books);
         }
     }
 }

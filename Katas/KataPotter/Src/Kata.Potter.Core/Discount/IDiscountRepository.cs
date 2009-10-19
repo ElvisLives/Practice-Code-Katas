@@ -2,26 +2,26 @@ using System.Collections.Generic;
 
 namespace Kata.Potter.Core.Discount
 {
-    public interface IDiscountRepository
+  public interface IDiscountRepository
+  {
+    IEnumerable<IDiscount> GetAllDiscounts();
+  }
+
+  public class DiscountSpecificationRepository : IDiscountRepository
+  {
+    #region IDiscountRepository Members
+
+    public IEnumerable<IDiscount> GetAllDiscounts()
     {
-        IEnumerable<IDiscountSpecification> GetAllDiscounts();
+      return new List<IDiscount>
+               {
+                 new Discount(2, .05),
+                 new Discount(3, .1),
+                 new Discount(4, .2),
+                 new Discount(5, .25)
+               };
     }
 
-    public class DiscountSpecificationRepository : IDiscountRepository
-    {
-        #region IDiscountRepository Members
-
-        public IEnumerable<IDiscountSpecification> GetAllDiscounts()
-        {
-            return new List<IDiscountSpecification>
-                       {
-                           new DiscountSpecification(2, new Discount(.05)),
-                           new DiscountSpecification(3, new Discount(.1)),
-                           new DiscountSpecification(4, new Discount(.2)),
-                           new DiscountSpecification(5, new Discount(.25))
-                       };
-        }
-
-        #endregion
-    }
+    #endregion
+  }
 }

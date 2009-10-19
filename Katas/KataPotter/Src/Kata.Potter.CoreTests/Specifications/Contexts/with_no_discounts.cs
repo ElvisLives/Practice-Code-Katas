@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Kata.Potter.Core;
 using Kata.Potter.Core.Discount;
 using Kata.Potter.Core.Model;
@@ -7,20 +6,19 @@ using Rhino.Mocks;
 
 namespace Kata.Potter.CoreTests.Specifications.Contexts
 {
-    public class with_no_discounts
-    {
-        public static Cart cart = new Cart();
-        public static IDiscountLocator locator;
-        public static PriceCalculator calculator;
-        public static double price;
+  public class with_no_discounts
+  {
+    public static PriceCalculator calculator;
+    public static Cart cart = new Cart();
+    public static IDiscounter discounter;
+    public static double price;
 
-        Establish context = () =>
-                                {
+    private Establish context = () =>
+                                  {
                                     cart = new Cart();
-                                    locator = MockRepository.GenerateStub<IDiscountLocator>();
-                                    locator.Expect(x => x.GetDiscountsFor(null)).IgnoreArguments()
-                                        .Return(new List<IDiscount>());
-                                    calculator = new PriceCalculator(locator);
-                                };
-    }
+                                    discounter = MockRepository.GenerateStub<IDiscounter>();
+                                    discounter.Expect(x => x.ApplyDiscounts(null)).IgnoreArguments().Return(cart.Books);
+                                    calculator = new PriceCalculator(discounter);
+                                  };
+  }
 }

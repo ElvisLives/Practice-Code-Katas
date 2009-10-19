@@ -19,7 +19,7 @@ namespace Kata.Potter.CoreTests
             var repo = new DiscountSpecificationRepository();
             var locator = new DiscountLocator(repo);
 
-            var discounts = locator.GetDiscountsFor(cart);
+            var discounts = locator.GetDiscountsFor(cart.Books);
 
             discounts.Count().ShouldEqual(0);
         }
@@ -33,7 +33,7 @@ namespace Kata.Potter.CoreTests
 
             cart.AddBook(new Book("", 8));
 
-            var discounts = locator.GetDiscountsFor(cart);
+            var discounts = locator.GetDiscountsFor(cart.Books);
 
             discounts.Count().ShouldEqual(0);
         }
@@ -48,7 +48,7 @@ namespace Kata.Potter.CoreTests
             cart.AddBook(new Book("", 8));
             cart.AddBook(new Book("", 8));
 
-            var discounts = locator.GetDiscountsFor(cart);
+            var discounts = locator.GetDiscountsFor(cart.Books);
 
             discounts.Count().ShouldEqual(0);
         }
@@ -63,7 +63,7 @@ namespace Kata.Potter.CoreTests
             cart.AddBook(new Book("Book 1", 8));
             cart.AddBook(new Book("Book 2", 8));
 
-            var discounts = locator.GetDiscountsFor(cart);
+            var discounts = locator.GetDiscountsFor(cart.Books);
 
             discounts.Count().ShouldEqual(1);
         }

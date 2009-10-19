@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Discount\IDiscount.cs" />
+    <Compile Include="Discount\IDiscounter.cs" />
     <Compile Include="Discount\IDiscountSpecification.cs" />
     <Compile Include="Discount\IDiscountLocator.cs" />
     <Compile Include="Discount\IDiscountRepository.cs" />

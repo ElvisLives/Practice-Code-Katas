@@ -7,7 +7,7 @@ namespace Kata.Potter.Core.Discount
 {
     public interface IDiscountLocator
     {
-        IEnumerable<IDiscount> GetDiscountsFor(Cart cart);
+      IEnumerable<IDiscount> GetDiscountsFor(IList<Book> books);
     }
 
     public class DiscountLocator : IDiscountLocator
@@ -19,11 +19,10 @@ namespace Kata.Potter.Core.Discount
             _factory = factory;
         }
 
-        public IEnumerable<IDiscount> GetDiscountsFor(Cart cart)
+        public IEnumerable<IDiscount> GetDiscountsFor(IList<Book> books)
         {
             return _factory.GetAllDiscounts()
-                .Where(x => x.IsSatisfiedBy(cart.Books))
-                .Select(x => x.Discount);
+                .Where(x => x.IsSatisfiedBy(books));
         }
     }
 }
