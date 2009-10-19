@@ -49,6 +49,7 @@
     <Compile Include="Discount\IDiscounter.cs" />
     <Compile Include="Discount\IDiscountLocator.cs" />
     <Compile Include="Discount\IDiscountRepository.cs" />
+    <Compile Include="Extensions\BookListExtensions.cs" />
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\Cart.cs" />
     <Compile Include="PriceCalculator.cs" />

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Kata.Potter.Core.Extensions;
 using Kata.Potter.Core.Model;
 
 namespace Kata.Potter.Core.Discount
@@ -22,20 +23,19 @@ namespace Kata.Potter.Core.Discount
 
     public IList<Book> ApplyDiscounts(IList<Book> books)
     {
-      IEnumerable<IDiscount> discounts = _locator.GetDiscountsFor(books)
+      var discounts = _locator.GetDiscountsFor(books)
         .OrderBy(x => x.Percentage);
 
-      IList<Book> bestDiscountedBooks = books;
+      var bestDiscountedBooks = books;
+
       for(int i = 0; i <= discounts.Count(); i++)
       {
-        var testDiscountBooks = new List<Book>();
-        books.ToList().ForEach(x => testDiscountBooks.Add((Book) x.Clone()));
+       var testDiscountBooks = books.Clone();
+
         foreach(IDiscount discount in discounts.Take(i).OrderByDescending(x => x.Percentage))
         {
           while(discount.IsSatisfiedBy(testDiscountBooks))
-          {
             discount.Apply(testDiscountBooks);
-          }
         }
 
         if(testDiscountBooks.Sum(x => x.Price) < bestDiscountedBooks.Sum(x => x.Price))
